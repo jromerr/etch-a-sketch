@@ -14,4 +14,10 @@ function createGrid(size = 16){
     }
 }
 
+divContainer.addEventListener("mouseover", e => {
+    if(e.target !== e.currentTarget){
+        e.target.style.background = "black";
+    }
+});
+
 createGrid();
