@@ -1,4 +1,12 @@
-const divContainer = document.querySelector(".container");
+const container = document.querySelector(".container");
+
+const divContainer = document.createElement("div");
+divContainer.style.display = 'flex';
+divContainer.style.flexWrap = 'wrap';
+divContainer.style.width = '600px';
+divContainer.style.height = '600px';
+divContainer.style.border = '1px solid black';
+container.classList.add("divContainer");
 
 function createGrid(size = 16){
     let total = size * size;
@@ -21,3 +29,30 @@ divContainer.addEventListener("mouseover", e => {
 });
 
 createGrid();
+
+const btn = document.createElement("button");
+btn.classList.add("sizeBtn");
+btn.innerText = "Change Size";
+
+btn.addEventListener('click', e => {
+    const userInput = prompt("Enter a size for the canvas (1 - 100)");
+    if (userInput === null){
+        console.log("User canceled prompt.");
+    }
+    else if (userInput.trim === ""){
+        window.alert("Input cannot be empty. Please try again.");
+    }
+    else{
+        const parsedInt = Number(userInput);
+        if (!Number.isNaN(parsedInt)){
+            
+            createGrid(parsedInt);
+        }
+        else {
+            window.alert("Not a valid number! Please try again.");
+        }
+    }
+});
+
+container.appendChild(btn);
+container.appendChild(divContainer);

@@ -6,11 +6,3 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
-    border: 1px solid;
-}
